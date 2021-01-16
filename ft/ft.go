@@ -7,17 +7,10 @@ type TypeFT struct {
 	l *time.Location
 }
 
-const (
-	Hour         string = "15"
-	Minute       string = "04"
-	Second       string = "05"
-	Day          string = "02"
-	Month        string = "01"
-	Year         string = "2006"
-	FullDate     string = "2006-01-02"
-	FullDateTime string = "2006-01-02 15:04:05"
-)
+func (t TypeFT) SubtractDate(dateEnd time.Time) time.Time {
+	return t.t.AddDate(dateEnd.Year(), int(dateEnd.Month()), dateEnd.Day())
+}
 
-func (t TypeFT) SubtractDate(dateBegin time.Time, dateEnd time.Time) {
-
+func (t TypeFT) SubtractTwoDates(dateBegin time.Time, dateEnd time.Time) time.Time {
+	return dateBegin.AddDate(dateEnd.Year(), int(dateEnd.Month()), dateEnd.Day())
 }

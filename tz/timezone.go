@@ -1,7 +1,9 @@
 package tz
 
+import "time"
+
 const (
-	PacificMidway       string = "Pacific/Midway"
+	PacificMidway       string = "Pacific/Midway" + 1 iota
 	USSamoa             string = "US/Samoa"
 	USHawaii            string = "US/Hawaii"
 	USAlaska            string = "US/Alaska"
@@ -114,3 +116,8 @@ const (
 	PacificAuckland     string = "Pacific/Auckland"
 	PacificFiji         string = "Pacific/Fiji"
 )
+
+func GetLocal(locale string) *time.Location {
+	val, _ := time.LoadLocation(locale)
+	return val
+}

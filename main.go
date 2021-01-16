@@ -4,9 +4,9 @@ import (
 	"log"
 	"time"
 
-	ft "./model"
+	ft "./dt"
 )
 
 func main() {
-	log.Println(time.Now().Format(ft.FullDateTime))
+	log.Println(time.Now().Format(ft.Hour))
 }

@@ -1,9 +1,9 @@
-package tz
+package ft
 
 import "time"
 
 const (
-	PacificMidway       string = "Pacific/Midway" + 1 iota
+	PacificMidway       string = "Pacific/Midway"
 	USSamoa             string = "US/Samoa"
 	USHawaii            string = "US/Hawaii"
 	USAlaska            string = "US/Alaska"

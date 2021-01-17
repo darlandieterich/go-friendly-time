@@ -1,4 +1,4 @@
-package dt
+package ft
 
 const (
 	Hour         string = "15"

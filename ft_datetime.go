@@ -1,12 +1,15 @@
 package ft
 
 const (
-	Hour         string = "15"
-	Minute       string = "04"
-	Second       string = "05"
-	Day          string = "02"
-	Month        string = "01"
-	Year         string = "2006"
-	FullDate     string = "2006-01-02"
-	FullDateTime string = "2006-01-02 15:04:05"
+	Hour          = "15"
+	Minute        = "04"
+	Second        = "05"
+	Day           = "02"
+	Month         = "01"
+	Year          = "2006"
+	FullDate      = "2006-01-02"
+	FullDateTime  = "2006-01-02 15:04:05"
+	DateFormatYMD = "2006-01-02"
+	DateFormatDMY = "02-01-2006"
+	DateFormatMDY = "01-02-2006"
 )

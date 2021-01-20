@@ -11,7 +11,9 @@ import (
 func main() {
 	ret := ft.TypeFT{
 		Time:   time.Now(),
-		Locale: ft.GetLocal(ft.AsiaTokyo),
+		Locale: ft.GetLocal(ft.AmericaSaoPaulo),
 	}
-	log.Println(ret.Time.In(ret.Locale).Format(ft.FullDateTime))
+	log.Println(ret.GetTimeNowString(ft.FullDateTime))
+	ret.Locale = ft.GetLocal(ft.PacificFiji)
+	log.Println(ret.GetTimeNowStruct())
 }

@@ -18,7 +18,7 @@ func (t TypeFT) GetTimeNowString(format string) string {
 	return time.Now().In(t.Locale).Format(format)
 }
 
-// GetTimeNowStruct return time now in struct format
-func (t TypeFT) GetTimeNowStruct(format string) time.Time {
+// GetTimeNowStruct return time now in struct
+func (t TypeFT) GetTimeNowStruct() time.Time {
 	return time.Now().In(t.Locale)
 }

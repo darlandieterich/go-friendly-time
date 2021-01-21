@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"time"
 
 	//import parent package/directory
@@ -12,8 +12,11 @@ func main() {
 	ret := ft.TypeFT{
 		Time:   time.Now(),
 		Locale: ft.GetLocal(ft.AmericaSaoPaulo),
+		Format: ft.FullDateTime,
 	}
-	log.Println(ret.GetTimeNowString(ft.FullDateTime))
+	fmt.Println(ret.GetTimeNowString())
 	ret.Locale = ft.GetLocal(ft.PacificFiji)
-	log.Println(ret.GetTimeNowStruct())
+	fmt.Println(ret.GetTimeNowStruct())
+	ret.Format = ft.Time
+	fmt.Println(ret.GetTimeNowString())
 }

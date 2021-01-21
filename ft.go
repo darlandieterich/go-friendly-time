@@ -1,11 +1,14 @@
 package ft
 
-import "time"
+import (
+	"time"
+)
 
 // TypeFT struc of time
 type TypeFT struct {
 	Time   time.Time
 	Locale *time.Location
+	Format string
 }
 
 // CalcDate calculate the date sum or subtract dates
@@ -14,8 +17,8 @@ func (t TypeFT) CalcDate(dateEnd time.Time) time.Time {
 }
 
 // GetTimeNowString return time now in string format
-func (t TypeFT) GetTimeNowString(format string) string {
-	return time.Now().In(t.Locale).Format(format)
+func (t TypeFT) GetTimeNowString() string {
+	return time.Now().In(t.Locale).Format(t.Format)
 }
 
 // GetTimeNowStruct return time now in struct

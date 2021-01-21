@@ -7,6 +7,7 @@ const (
 	Day           = "02"
 	Month         = "01"
 	Year          = "2006"
+	Time          = "15:04:05"
 	FullDate      = "2006-01-02"
 	FullDateTime  = "2006-01-02 15:04:05"
 	DateFormatYMD = "2006-01-02"

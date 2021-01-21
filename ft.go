@@ -11,6 +11,11 @@ type TypeFT struct {
 	Format string
 }
 
+const (
+	CalcDateUp int = iota
+	CalcDateDown
+)
+
 // CalcDate calculate the date sum or subtract dates
 func (t TypeFT) CalcDate(dateEnd time.Time) time.Time {
 	return t.Time.AddDate(dateEnd.Year(), int(dateEnd.Month()), dateEnd.Day())

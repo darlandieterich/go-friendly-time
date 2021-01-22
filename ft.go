@@ -1,6 +1,7 @@
 package ft
 
 import (
+	"strings"
 	"time"
 )
 
@@ -16,9 +17,24 @@ const (
 	CalcDateDown
 )
 
+func New(options *TypeFT) TypeFT {
+	if options != nil {
+		return *options
+	}
+	return TypeFT{
+		Time:   time.Now(),
+		Locale: GetLocal(TZLocal),
+		Format: DTFullDateTime,
+	}
+}
+
 // CalcDate calculate the date sum or subtract dates
 func (t TypeFT) CalcDate(dateEnd time.Time) time.Time {
 	return t.Time.AddDate(dateEnd.Year(), int(dateEnd.Month()), dateEnd.Day())
+}
+
+func FormatDateTime(datetime time.Time, format []string) string {
+	return datetime.Format(strings.Join(format[:], ""))
 }
 
 // GetTimeNowString return time now in string format

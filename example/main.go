@@ -9,14 +9,16 @@ import (
 )
 
 func main() {
-	ret := ft.TypeFT{
+	ret := ft.New(&ft.TypeFT{
 		Time:   time.Now(),
-		Locale: ft.GetLocal(ft.AmericaSaoPaulo),
-		Format: ft.FullDateTime,
-	}
+		Locale: ft.GetLocal(ft.TZAmericaSaoPaulo),
+		Format: ft.DTFullDateTime,
+	})
+
 	fmt.Println(ret.GetTimeNowString())
-	ret.Locale = ft.GetLocal(ft.PacificFiji)
-	fmt.Println(ret.GetTimeNowStruct())
-	ret.Format = ft.Time
-	fmt.Println(ret.GetTimeNowString())
+	//ret.Locale = ft.GetLocal(ft.TZPacificFiji)
+	//fmt.Println(ret.GetTimeNowStruct())
+	//ret.Format = ft.DTTime
+	//fmt.Println(ret.GetTimeNowString())
+	fmt.Println(ft.FormatDateTime(time.Now(), []string{ft.DTHour, ft.DTColon, ft.DTMinute, ft.DTColon, ft.DTSecond}))
 }

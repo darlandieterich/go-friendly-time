@@ -593,9 +593,13 @@ const (
 	TZWET                            = "WET"
 	TZWSU                            = "W-SU"
 	TZZulu                           = "Zulu"
+	TZLocal                          = ""
 )
 
 func GetLocal(locale string) *time.Location {
+	if locale == TZLocal {
+		return time.Local
+	}
 	val, _ := time.LoadLocation(locale)
 	return val
 }

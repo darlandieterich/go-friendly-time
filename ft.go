@@ -13,8 +13,8 @@ type TypeFT struct {
 }
 
 const (
-	CalcDateUp int = iota
-	CalcDateDown
+	ConsumeUp int = iota
+	ConsumeDown
 )
 
 func New(options *TypeFT) TypeFT {
@@ -29,8 +29,30 @@ func New(options *TypeFT) TypeFT {
 }
 
 // CalcDate calculate the date sum or subtract dates
-func (t TypeFT) CalcDate(dateEnd time.Time) time.Time {
-	return t.Time.AddDate(dateEnd.Year(), int(dateEnd.Month()), dateEnd.Day())
+func (t TypeFT) CalcDate(duration int, expression int) time.Time {
+	switch expression {
+	case DTCycleNanosecond:
+		return t.Time.Add(time.Duration(duration) * time.Nanosecond)
+	case DTCycleMicrosecond:
+		return t.Time.Add(time.Duration(duration) * time.Microsecond)
+	case DTCycleMillisecond:
+		return t.Time.Add(time.Duration(duration) * time.Millisecond)
+	case DTCycleSecond:
+		return t.Time.Add(time.Duration(duration) * time.Second)
+	case DTCycleMinute:
+		return t.Time.Add(time.Duration(duration) * time.Minute)
+	case DTCycleHour:
+		return t.Time.Add(time.Duration(duration) * time.Hour)
+	case DTCycleDay:
+		return t.Time.AddDate(0, 0, duration)
+	case DTCycleMonth:
+		return t.Time.AddDate(0, duration, 0)
+	case DTCycleYear:
+		return t.Time.AddDate(duration, 0, 0)
+	default:
+		return t.Time
+	}
+
 }
 
 func FormatDateTime(datetime time.Time, format []string) string {

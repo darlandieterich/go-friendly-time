@@ -20,3 +20,15 @@ const (
 	DTComma         = ","
 	DTSlash         = "/"
 )
+
+const (
+	DTCycleNanosecond int = iota
+	DTCycleMicrosecond
+	DTCycleMillisecond
+	DTCycleSecond
+	DTCycleMinute
+	DTCycleHour
+	DTCycleDay
+	DTCycleMonth
+	DTCycleYear
+)

@@ -37,6 +37,10 @@ func FormatDateTime(datetime time.Time, format []string) string {
 	return datetime.Format(strings.Join(format[:], ""))
 }
 
+func (t TypeFT) FormatDateTime(datetime time.Time, format []string) string {
+	return t.Time.In(t.Locale).Format(strings.Join(format[:], ""))
+}
+
 // GetTimeNowString return time now in string format
 func (t TypeFT) GetTimeNowString() string {
 	return time.Now().In(t.Locale).Format(t.Format)

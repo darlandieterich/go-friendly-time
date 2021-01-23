@@ -19,7 +19,7 @@ func New(options *TypeFT) TypeFT {
 	return TypeFT{
 		Time:   time.Now(),
 		Locale: GetLocal(TZLocal),
-		Format: DTFullDateTime,
+		Format: DTFormatFullDateTime,
 	}
 }
 

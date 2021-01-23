@@ -36,3 +36,57 @@ func main() {
 	fmt.Println(ret.GetTimeNowString())
 }
 ```
+
+## Constant declarations
+### Format
+File: ``ft_datetime.go``
+
+Types:
+```go
+	DTFormatHour          = "15"
+	DTFormatMinute        = "04"
+	DTFormatSecond        = "05"
+	DTFormatDay           = "02"
+	DTFormatMonth         = "01"
+	DTFormatYear          = "2006"
+	DTFormatTime          = "15:04:05"
+	DTFormatFullDate      = "2006-01-02"
+	DTFormatFullDateTime  = "2006-01-02 15:04:05"
+	DTFormatDateFormatYMD = "2006-01-02"
+	DTFormatDateFormatDMY = "02-01-2006"
+	DTFormatDateFormatMDY = "01-02-2006"
+	DTFormatBlank         = " "
+	DTFormatDash          = "-"
+	DTFormatColon         = ":"
+	DTFormatDot           = "."
+	DTFormatComma         = ","
+	DTFormatSlash         = "/"
+```
+### Cycle time
+File: ``ft_datetime.go``
+
+Types:
+```go
+	DTCycleNanosecond int = iota
+	DTCycleMicrosecond
+	DTCycleMillisecond
+	DTCycleSecond
+	DTCycleMinute
+	DTCycleHour
+	DTCycleDay
+	DTCycleMonth
+	DTCycleYear
+```
+### Timezone Location
+File: ``ft_timezone.go``
+
+Types:
+```go
+	TZAfricaAbidjan                  = "Africa/Abidjan"
+	TZAfricaAccra                    = "Africa/Accra"
+	TZAfricaAddisAbaba               = "Africa/Addis_Ababa"
+	TZAfricaAlgiers                  = "Africa/Algiers"
+	TZAfricaAsmara                   = "Africa/Asmara"
+	TZAfricaBamako                   = "Africa/Bamako"
+	//.....more in ft_timezone.go
+```

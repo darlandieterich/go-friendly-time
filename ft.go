@@ -12,11 +12,6 @@ type TypeFT struct {
 	Format string
 }
 
-const (
-	ConsumeUp int = iota
-	ConsumeDown
-)
-
 func New(options *TypeFT) TypeFT {
 	if options != nil {
 		return *options
@@ -28,31 +23,31 @@ func New(options *TypeFT) TypeFT {
 	}
 }
 
-// CalcDate calculate the date sum or subtract dates
-func (t TypeFT) CalcDate(duration int, expression int) time.Time {
-	switch expression {
+// CalcTime calculate the date sum or subtract dates
+func (t TypeFT) CalcTime(duration int, cycle int) time.Time {
+	tm := t.Time.In(t.Locale)
+	switch cycle {
 	case DTCycleNanosecond:
-		return t.Time.Add(time.Duration(duration) * time.Nanosecond)
+		return tm.Add(time.Duration(duration) * time.Nanosecond)
 	case DTCycleMicrosecond:
-		return t.Time.Add(time.Duration(duration) * time.Microsecond)
+		return tm.Add(time.Duration(duration) * time.Microsecond)
 	case DTCycleMillisecond:
-		return t.Time.Add(time.Duration(duration) * time.Millisecond)
+		return tm.Add(time.Duration(duration) * time.Millisecond)
 	case DTCycleSecond:
-		return t.Time.Add(time.Duration(duration) * time.Second)
+		return tm.Add(time.Duration(duration) * time.Second)
 	case DTCycleMinute:
-		return t.Time.Add(time.Duration(duration) * time.Minute)
+		return tm.Add(time.Duration(duration) * time.Minute)
 	case DTCycleHour:
-		return t.Time.Add(time.Duration(duration) * time.Hour)
+		return tm.Add(time.Duration(duration) * time.Hour)
 	case DTCycleDay:
-		return t.Time.AddDate(0, 0, duration)
+		return tm.AddDate(0, 0, duration)
 	case DTCycleMonth:
-		return t.Time.AddDate(0, duration, 0)
+		return tm.AddDate(0, duration, 0)
 	case DTCycleYear:
-		return t.Time.AddDate(duration, 0, 0)
+		return tm.AddDate(duration, 0, 0)
 	default:
-		return t.Time
+		return tm
 	}
-
 }
 
 func FormatDateTime(datetime time.Time, format []string) string {

@@ -23,8 +23,9 @@ func main() {
 	//Get Time now in string
 	fmt.Println(ret.GetTimeNowString())
 	//Show the time in personalized format with array of string normalized constants
-	fmt.Println(ft.FormatDateTime(time.Now(), []string{ft.DTHour, ft.DTColon, ft.DTMinute, ft.DTColon, ft.DTSecond}))
-
+	fmt.Println(ret.FormatDateTime(time.Now(), []string{ft.DTHour, ft.DTColon, ft.DTMinute, ft.DTColon, ft.DTSecond}))
+	//Up to 10 years
+	fmt.Println("Years: ", ret.CalcTime(10, ft.DTCycleYear))
 	//Change the Location
 	ret.Locale = ft.GetLocal(ft.TZPacificFiji)
 	//Show the location in Time struct

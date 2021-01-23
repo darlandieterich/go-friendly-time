@@ -1,5 +1,5 @@
 # go-friendly-time
-Friendly helper to work with package time
+Simplify to work with time package on Golang.
 
 ## example usage
 
